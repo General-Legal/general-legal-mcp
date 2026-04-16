@@ -1,8 +1,8 @@
-# Sentinel MCP Server
+# General Legal MCP Server
 
-[Sentinel](https://general.legal) is an AI-native legal contract review platform. Upload contracts and get them reviewed by a combination of AI and a human attorney — directly from your AI assistant.
+[General Legal](https://general.legal) is an AI-native legal contract review platform. Upload contracts and get them reviewed by a combination of AI and a human attorney — directly from your AI assistant.
 
-The Sentinel MCP server lets any MCP-compatible client (Claude Code, Claude Desktop, etc.) upload, track, and download legal contracts through natural conversation.
+The General Legal MCP server lets any MCP-compatible client (Claude Code, Claude Desktop, etc.) upload, track, and download legal contracts through natural conversation.
 
 ## What you can do
 
@@ -27,7 +27,7 @@ The Sentinel MCP server lets any MCP-compatible client (Claude Code, Claude Desk
 ### Claude Code
 
 ```bash
-claude mcp add sentinel https://sentinel-mcp-server-299005046024.us-west1.run.app/mcp
+claude mcp add "general-legal" https://sentinel-mcp-server-299005046024.us-west1.run.app/mcp
 ```
 
 Then start a conversation and ask Claude to interact with your contracts.
@@ -39,7 +39,7 @@ Add this to your Claude Desktop MCP configuration:
 ```json
 {
   "mcpServers": {
-    "sentinel": {
+    "general-legal": {
       "url": "https://sentinel-mcp-server-299005046024.us-west1.run.app/mcp"
     }
   }
@@ -61,7 +61,7 @@ The server supports OAuth 2.1 with automatic discovery — your client will hand
 The server uses **OAuth 2.1** (Authorization Code + PKCE). When you connect for the first time:
 
 1. Your MCP client automatically discovers the auth configuration
-2. You're redirected to sign in with your Sentinel account (email/password, Google, or Microsoft)
+2. You're redirected to sign in with your General Legal account (email/password, Google, or Microsoft)
 3. If you belong to multiple organizations, you'll be prompted to choose one
 4. Once authenticated, your session persists until the token expires
 
@@ -69,7 +69,7 @@ No API keys, secrets, or manual configuration required — just paste the server
 
 ## Requirements
 
-- A [Sentinel](https://general.legal) account with an active organization
+- A [General Legal](https://general.legal) account with an active organization
 - An MCP-compatible client (Claude Code, Claude Desktop, or any client supporting Streamable HTTP)
 
 ## Supported file formats
@@ -96,6 +96,6 @@ Contract reviews involve both AI analysis and human attorney review. Typical tur
 - **Email**: support@general.legal
 - **Website**: [general.legal](https://general.legal)
 
-## About Sentinel
+## About General Legal
 
-Sentinel is built for any workflow where contracts need professional legal review — whether you're an AI agent negotiating on behalf of a user, a business automating vendor agreements, or a team that wants faster contract turnaround. Every contract is reviewed by a licensed attorney, so you can be confident the results are legally sound.
+General Legal is built for any workflow where contracts need professional legal review — whether you're an AI agent negotiating on behalf of a user, a business automating vendor agreements, or a team that wants faster contract turnaround. Every contract is reviewed by a licensed attorney, so you can be confident the results are legally sound.
