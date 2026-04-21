@@ -2,6 +2,8 @@
 
 [General Legal](https://general.legal) is an AI-native legal contract review platform. Upload contracts and get them reviewed by a combination of AI and a human attorney — directly from your AI assistant.
 
+Before using this MCP, you'll need to create an account at https://general.legal
+
 The General Legal MCP server lets any MCP-compatible client (Claude Code, Claude Desktop, etc.) upload, track, and download legal contracts through natural conversation.
 
 ## What you can do
