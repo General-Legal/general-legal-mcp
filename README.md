@@ -27,7 +27,7 @@ The General Legal MCP server lets any MCP-compatible client (Claude Code, Claude
 ### Claude Code
 
 ```bash
-claude mcp add "general-legal" https://mcp.general.legal/
+claude mcp add "general-legal" https://mcp.general.legal/mcp
 ```
 
 Then start a conversation and ask Claude to interact with your contracts.
@@ -40,7 +40,7 @@ Add this to your Claude Desktop MCP configuration:
 {
   "mcpServers": {
     "general-legal": {
-      "url": "https://mcp.general.legal/"
+      "url": "https://mcp.general.legal/mcp"
     }
   }
 }
@@ -51,7 +51,7 @@ Add this to your Claude Desktop MCP configuration:
 Point any MCP client that supports Streamable HTTP transport to:
 
 ```
-https://mcp.general.legal/
+https://mcp.general.legal/mcp
 ```
 
 The server supports OAuth 2.1 with automatic discovery — your client will handle the login flow.
