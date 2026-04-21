@@ -27,7 +27,7 @@ The General Legal MCP server lets any MCP-compatible client (Claude Code, Claude
 ### Claude Code
 
 ```bash
-claude mcp add "general-legal" https://sentinel-mcp-server-299005046024.us-west1.run.app/mcp
+claude mcp add "general-legal" https://mcp.general.legal/
 ```
 
 Then start a conversation and ask Claude to interact with your contracts.
@@ -40,7 +40,7 @@ Add this to your Claude Desktop MCP configuration:
 {
   "mcpServers": {
     "general-legal": {
-      "url": "https://sentinel-mcp-server-299005046024.us-west1.run.app/mcp"
+      "url": "https://mcp.general.legal/"
     }
   }
 }
@@ -51,7 +51,7 @@ Add this to your Claude Desktop MCP configuration:
 Point any MCP client that supports Streamable HTTP transport to:
 
 ```
-https://sentinel-mcp-server-299005046024.us-west1.run.app/mcp
+https://mcp.general.legal/
 ```
 
 The server supports OAuth 2.1 with automatic discovery — your client will handle the login flow.
