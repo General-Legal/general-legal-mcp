@@ -44,7 +44,7 @@ A matter can hold one or more **documents**, and each document can have multiple
 ### Claude Code
 
 ```bash
-claude mcp add "general-legal" https://sentinel-mcp-server-299005046024.us-west1.run.app/mcp
+claude mcp add "general-legal" https://mcp.general.legal/mcp
 ```
 
 Then start a conversation and ask Claude to interact with your matters.
@@ -57,7 +57,7 @@ Add this to your Claude Desktop MCP configuration:
 {
   "mcpServers": {
     "general-legal": {
-      "url": "https://sentinel-mcp-server-299005046024.us-west1.run.app/mcp"
+      "url": "https://mcp.general.legal/mcp"
     }
   }
 }
@@ -68,7 +68,7 @@ Add this to your Claude Desktop MCP configuration:
 Point any MCP client that supports Streamable HTTP transport to:
 
 ```
-https://sentinel-mcp-server-299005046024.us-west1.run.app/mcp
+https://mcp.general.legal/mcp
 ```
 
 The server supports OAuth 2.1 with automatic discovery — your client will handle the login flow.
