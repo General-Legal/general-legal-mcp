@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "general-legal",
+  "version": "1.0.0",
+  "description": "Real lawyers + AI: contract review, legal matters, and Delaware company formation",
+  "author": {
+    "name": "General Legal",
+    "email": "support@general.legal",
+    "url": "https://general.legal"
+  },
+  "homepage": "https://general.legal",
+  "repository": "https://github.com/General-Legal/general-legal-mcp",
+  "keywords": [
+    "legal",
+    "lawyer",
+    "contracts",
+    "contract-review",
+    "incorporation",
+    "llc",
+    "c-corp",
+    "delaware",
+    "mcp"
+  ]
+}

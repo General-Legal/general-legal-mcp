@@ -1,0 +1,13 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "general-legal": {
+      "type": "streamable-http",
+      "url": "https://mcp.general.legal/mcp"
+    },
+    "general-legal-incorporation": {
+      "type": "streamable-http",
+      "url": "https://incorp-mcp.general.legal/mcp"
+    }
+  }
+}
