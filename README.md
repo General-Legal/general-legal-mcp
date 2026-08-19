@@ -4,6 +4,24 @@
 
 The General Legal MCP server lets any MCP-compatible client (Claude Code, Claude Desktop, etc.) start matters, submit documents, track review status, answer the attorney's questions, and download reviewed documents through natural conversation.
 
+This repository is also an [Agent Plugin](https://agent-plugins.org) (spec 1.0.0) bundling both General Legal MCP servers — this one and the [Delaware company formation server](#delaware-company-formation-server) — together with the skills that teach an agent how to use them well.
+
+## Install as an Agent Plugin
+
+```
+npx plugins add General-Legal/general-legal-mcp
+```
+
+The CLI detects your installed agent clients (Claude Code, Cursor, Codex, GitHub Copilot CLI, VS Code, and others) and installs to all of them. Clients that support the Agent Plugins format natively (ChatGPT, Cursor, GitHub Copilot, Kiro, VS Code) can also load this repository directly.
+
+| Path | Purpose |
+| --- | --- |
+| `mcp.json` | Two remote MCP servers (Streamable HTTP, no local process) |
+| `skills/legal-matters/` | Contract review, legal questions, matter tracking |
+| `skills/company-formation/` | Delaware LLC / C-corp formation end to end |
+
+Prefer to connect a single server by hand? See [Connecting](#connecting) below for the matters server, or the [company formation section](#delaware-company-formation-server) for the other.
+
 ## Concepts
 
 Work is organized into **matters** (deals). A matter can be started two ways:
@@ -114,6 +132,21 @@ Reviews involve both AI analysis and human attorney review. Typical turnaround i
 | `awaiting_client` | The attorney has questions for you — answer with `reply_to_thread` |
 | `ready_for_review` | Review complete, ready to download |
 | `closed` | Matter completed |
+
+## Delaware company formation server
+
+A second, separate MCP server handles Delaware company formation end to end — LLC or C-corp, including instant handover of a pre-formed shelf company:
+
+```
+https://incorp-mcp.general.legal/mcp
+```
+
+Unlike the matters server, this endpoint is **authless**: no account or sign-in is needed to start. Each formation is instead protected by its `formation_id`, a bearer capability token returned exactly once when the formation starts.
+
+> Treat a `formation_id` like a password: it grants full access to that formation and its
+> documents. Store it securely and never share or log it.
+
+The flow, in short: `get_filing_options` presents the entity types, filing speeds, and prices; `start_llc_formation` / `start_c_corp_formation` returns a Stripe checkout link to pay in the browser; `get_status` tracks progress (including e-signing steps and human review); `get_documents` returns short-lived download links for the formation documents. Full agent guidance lives in [`skills/company-formation/SKILL.md`](skills/company-formation/SKILL.md).
 
 ## Support
 
