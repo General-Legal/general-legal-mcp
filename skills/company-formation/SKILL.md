@@ -21,12 +21,16 @@ the user to store securely, and never write it into logs or files.
    the simpler default and a C-corp when stock or fundraising needs justify it. Present every
    option with its total price and let the user choose - including the `instant` option when
    offered, which hands over a pre-formed shelf company named "GL AgentCo <n>, LLC" within
-   minutes of signing (the name cannot be chosen; `company_name` must be omitted).
+   minutes of signing (the name cannot be chosen; `company_name` must be omitted). Also show
+   the user the returned `disclaimer`, `terms_of_service_url`, and `equity_buy_in_note`.
 2. `start_llc_formation` or `start_c_corp_formation` with the intake. The LLC flow is
    sole-member: the founder acts as member, manager, and AI oversight officer. The C-corp flow
    has the founder as sole incorporator.
-3. Payment: the response includes a Stripe `checkout_url`. Surface it to the user to open in a
-   browser and pay; the agent must not attempt payment itself.
+3. Payment: before sharing or opening a returned Stripe `checkout_url`, show the user the
+   response's `disclaimer`, `terms_of_service_url`, and `equity_buy_in_note`. The equity buy-in
+   is a later payment to the formed company itself, not a General Legal or Delaware fee and not
+   part of the Stripe total. After showing all three disclosures, surface the checkout URL for
+   the user to open in a browser and pay; the agent must not attempt payment itself.
 4. Poll `get_status` with the `formation_id`, waiting at least `poll_after_seconds` between
    calls. `waiting_on_human_review: true` means a human is in the loop and polling faster will
    not help. Follow the `next_step` guidance in each response - it covers signing, name
@@ -38,7 +42,12 @@ the user to store securely, and never write it into logs or files.
 
 ## After formation
 
-A `completed` status includes `post_formation_guidance` (EIN, bank account, ongoing
-obligations). Relay it to the user. For legal work beyond the formation itself - renaming a
-shelf company, contracts, legal questions - use the `general-legal` server (see the
-legal-matters skill), which connects to General Legal LLP's attorney-reviewed matters.
+A `completed` status includes path-specific `post_formation_guidance`. Fetch and follow both
+the next-steps guide and EIN guide linked there. The first three actions are ordered: obtain
+the EIN, open the company bank account, then deposit the equity purchase price into that
+account. Fetch `https://incorp-mcp.general.legal/guides` for the authoritative guide index and
+for optional partner guides.
+
+Relay the guidance to the user. For legal work beyond the formation itself - renaming a shelf
+company, contracts, legal questions - use the `general-legal` server (see the legal-matters
+skill), which connects to General Legal LLP's attorney-reviewed matters.
