@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.1 - 2026-10-14
+
+- Updated the OAuth guide, README, and installed matters skill for signup during connection,
+  including onboarding, engagement agreement acceptance, and return to the MCP client.
+- Clarified recovery for previously stuck connections and reuse of existing organizations.
+
 ## 1.3.0 - 2026-09-08
 
 - Split matters connections into Clerk OAuth and API-key agents endpoints.

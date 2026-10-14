@@ -6,8 +6,10 @@ Choose the matters connection that matches your authentication method:
 
 | Service | Endpoint | Authentication | Guide |
 | --- | --- | --- | --- |
-| General Legal | `https://mcp.general.legal/mcp` | Clerk OAuth; sign in and select an organization | [OAuth guide](docs/oauth.md) |
+| General Legal | `https://mcp.general.legal/mcp` | Clerk OAuth; sign in or sign up during connection, then select an organization | [OAuth guide](docs/oauth.md) |
 | General Legal for Agents | `https://agents-mcp.general.legal/mcp` | API key; anonymous signup/recovery when enabled | [Agents guide](docs/agents.md) |
+
+New clients can complete signup and accept the engagement agreement during connection, then return to their MCP client. Existing clients use their current account and organization. See the [OAuth guide](docs/oauth.md) for the signup flow and recovery steps for a previously stuck connection.
 
 Both expose the same eight matter/document tools. The agents service also supports six signup/recovery tools and their one-time API-key results. The [public REST API](https://api.general.legal/api/v1/docs) remains available for direct integrations.
 
