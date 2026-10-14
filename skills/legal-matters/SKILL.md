@@ -13,9 +13,10 @@ Server: `general-legal` (https://mcp.general.legal/mcp).
 
 ## Authentication and access
 
-This connection uses Clerk OAuth. The first authenticated call asks the user to sign in
-with their General Legal account and choose an organization. Use the client's reconnect
-flow if authorization expires. Only work with the authenticated organization's matters.
+Clerk OAuth supports sign-in and signup during connection. New clients complete onboarding
+and accept the engagement agreement; existing clients use their current organization.
+Only work with the authenticated organization's matters. For setup or reconnect issues,
+see the [OAuth guide](../../docs/oauth.md).
 
 ## Starting a matter
 

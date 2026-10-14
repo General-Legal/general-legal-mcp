@@ -1,12 +1,21 @@
 # General Legal — OAuth guide
 
-Connect **General Legal** (`general-legal`) to work with legal matters through Claude, ChatGPT, or another OAuth-capable MCP client.
+Connect **General Legal** (`general-legal`) to work with legal matters through Claude or another OAuth-capable MCP client.
 
 Endpoint: `https://mcp.general.legal/mcp`
 
 ## Connect
 
-Add the endpoint as a remote MCP connection in your client. Follow its authorization flow, sign in with your General Legal portal account, and select your organization. An active organization mapped to your General Legal client is required to access matters.
+In Claude Desktop or Claude on the web, find **General Legal** in **Settings → Connectors** and choose **Connect**. In another MCP client, add the endpoint above as a remote MCP connection.
+
+You can create a General Legal account during connection; signing up separately on the portal is not required.
+
+1. Sign in with your existing General Legal account, or choose sign up to create one.
+2. If you are a new client, complete onboarding and accept the engagement agreement. This creates your General Legal organization. If you already belong to a General Legal organization, use that account and organization instead of creating another one.
+3. Select your organization when prompted and approve the connection.
+4. Return to your MCP client. Claude Desktop may ask you to open the desktop app. You can now ask General Legal to list your matters or start a new one.
+
+Onboarding started from this connection flow returns you to authorization automatically. A successful new signup does not require disconnecting and reconnecting.
 
 For Claude Code:
 
@@ -31,7 +40,15 @@ Authentication uses Clerk OAuth discovery. Only approve a connection you initiat
 
 ## Reconnect and access problems
 
-Use your client's reconnect/sign-in action if authorization expires or is revoked. If the connection reports a missing organization, sign in with the correct organization. If it is not provisioned in General Legal, contact support@general.legal. A temporary authentication-service outage can be retried later.
+Use your client's reconnect/sign-in action if authorization expires or is revoked.
+
+For a previously stuck connection that reports **Your General Legal connection needs setup** or a missing organization:
+
+1. If you have not finished signup, complete [onboarding](https://portal.general.legal/onboarding) and accept the engagement agreement. If you already have a General Legal organization, use the account that belongs to it instead of signing up again.
+2. Disconnect and reconnect the General Legal connector in your client, then select your organization when prompted.
+3. Ask General Legal to list your matters again to confirm the connection works.
+
+If your existing organization is unavailable or setup still fails after reconnecting, contact support@general.legal. A temporary authentication-service outage can be retried later.
 
 This endpoint exposes the eight tools below after authentication. For API-key integrations, use the separate [agents guide](agents.md).
 
