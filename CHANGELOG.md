@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.2 - 2026-11-06
+
+- Added catch-up guidance to the installed matters skill: read every matter page and thread,
+  and skip stable message and version IDs already handled.
+
 ## 1.3.1 - 2026-10-14
 
 - Updated the OAuth guide, README, and installed matters skill for signup during connection,
