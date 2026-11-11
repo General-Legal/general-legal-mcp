@@ -54,6 +54,22 @@ idempotency key; do not create a duplicate upload with a new key.
   Do not poll in a tight loop; check `list_deals` when the user asks or a lot of time has
   passed.
 
+## Catching up on missed updates
+
+When you may have missed attorney messages or released documents, for example after a gap in
+your session:
+
+1. Call `list_deals` with no status filter, so closed matters are included, and read every
+   page. The output tells you when another page remains.
+2. Call `list_thread_messages` for each matter.
+3. Message IDs and version IDs never change. Skip the ones you already handled.
+4. If you don't know what you already handled, treat everything you can read as new and
+   summarize it once for the user.
+5. If any page or thread fails to load, tell the user the catch-up is incomplete.
+
+Content withdrawn since your last check may no longer be readable. Before acting on an update,
+check the matter's current state.
+
 ## Getting results
 
 Once a matter is `ready_for_review` or `closed`, call `download_contract` with the released
