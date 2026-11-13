@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0 - Unreleased
+
+- Documented the guide and questionnaire tools: `list_explainers`, `get_explainer`, and
+  `open_explainer`, in both guides and the installed matters skill.
+
 ## 1.3.2 - 2026-11-06
 
 - Added catch-up guidance to the installed matters skill: read every matter page and thread,

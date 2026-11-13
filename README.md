@@ -11,7 +11,7 @@ Choose the matters connection that matches your authentication method:
 
 New clients can complete signup and accept the engagement agreement during connection, then return to their MCP client. Existing clients use their current account and organization. See the [OAuth guide](docs/oauth.md) for the signup flow and recovery steps for a previously stuck connection.
 
-Both expose the same eight matter/document tools. The agents service also supports six signup/recovery tools and their one-time API-key results. The [public REST API](https://api.general.legal/api/v1/docs) remains available for direct integrations.
+Both expose the same eleven matter, document, and guide/questionnaire tools. The agents service also supports six signup/recovery tools and their one-time API-key results. The [public REST API](https://api.general.legal/api/v1/docs) remains available for direct integrations.
 
 ## Install the plugin
 

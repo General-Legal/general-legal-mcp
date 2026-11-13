@@ -70,6 +70,19 @@ your session:
 Content withdrawn since your last check may no longer be readable. Before acting on an update,
 check the matter's current state.
 
+## Guides and questionnaires
+
+The legal team can release guides and questionnaires on a matter (the tools call them
+explainers). A thread message that announces one includes its `explainer_id`.
+
+- `list_explainers` finds the ones released on a matter.
+- `open_explainer` shows one as an interactive page where the user reads it and answers its
+  questions. In apps that cannot show pages it returns the same text as `get_explainer`.
+- `get_explainer` returns the text with any saved answers and a link to the client portal.
+
+The questions are for the user. Do not answer them on the user's behalf; if the app cannot
+show the page, give the user the portal link from `get_explainer`.
+
 ## Getting results
 
 Once a matter is `ready_for_review` or `closed`, call `download_contract` with the released

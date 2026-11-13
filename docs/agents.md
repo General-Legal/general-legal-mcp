@@ -36,7 +36,7 @@ The [public REST API reference](https://api.general.legal/api/v1/docs) covers di
 
 ## Signup and recovery tools
 
-Without credentials, the agents endpoint exposes these tools when signup is enabled. API-key authentication unlocks the eight business tools described below.
+Without credentials, the agents endpoint exposes these tools when signup is enabled. API-key authentication unlocks the eleven business tools described below.
 
 | Tool | Purpose |
 | --- | --- |
@@ -78,13 +78,24 @@ A matter (called a deal by the tools) holds a legal question or one or more docu
 | `reply_to_thread` | Send a message to the attorney. |
 | `download_contract` | Get a released version's download link and authenticated MCP resource link. |
 
+## Guide and questionnaire tools
+
+The legal team can release guides and questionnaires on a matter (the tools call them explainers). A questionnaire holds questions for you to answer.
+
+| Tool | Purpose |
+| --- | --- |
+| `list_explainers` | Find the guides and questionnaires released on a matter. |
+| `get_explainer` | Read one as text, with any saved answers and a link to open it in the client portal. |
+| `open_explainer` | Show one as an interactive page the client can answer, in apps that support interactive pages. Other apps get the same text as `get_explainer`. |
+
 ## Workflow
 
 1. Call `start_deal` with a legal question, or `upload_document` with a supported filename and a stable `idempotency_key`.
 2. For a document, transfer the file through the returned first-party upload link. A person can open it in a browser and select the file, or a shell-capable client can use the returned `curl -T` command. File bytes do not belong in tool arguments.
 3. Call `confirm_upload` with the returned contract/version IDs and any context for the legal team.
 4. Use `list_deals` to check progress. Use `list_thread_messages` and `reply_to_thread` for attorney questions.
-5. When a reviewed version is available, call `download_contract` with its version ID. Open the first-party download link or use the authenticated `gl://contracts/versions/{version_id}` resource if your client supports MCP resources.
+5. When a thread message announces a guide or questionnaire, or the client asks for one, call `list_explainers` for the matter, then `open_explainer` (or `get_explainer` for text) with its ID. Answers are given by the client on the page or in the client portal.
+6. When a reviewed version is available, call `download_contract` with its version ID. Open the first-party download link or use the authenticated `gl://contracts/versions/{version_id}` resource if your client supports MCP resources.
 
 Uploads support `.docx`, `.pdf`, `.png`, `.jpg`, `.jpeg`, and `.md`, up to **20 MiB**. Upload links last about one hour; download links last about 15 minutes. Request a fresh download link after expiry.
 
