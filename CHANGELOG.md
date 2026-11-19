@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0 - Unreleased
+
+- Added Legal Ops in a Box alongside the Matters skill, with a synthetic intake and approval demo.
+
 ## 1.3.2 - 2026-11-06
 
 - Added catch-up guidance to the installed matters skill: read every matter page and thread,
