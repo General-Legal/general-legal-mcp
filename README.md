@@ -27,7 +27,14 @@ The plugin connects the OAuth matters service and the separate incorporation ser
 | `docs/oauth.md` | OAuth connection and legal-matter workflows |
 | `docs/agents.md` | API-key access, signup/recovery, and legal-matter workflows |
 | `skills/legal-matters/` | Instructions for the installed OAuth matters connection |
+| `skills/legal-ops-in-a-box/` | Map legal intake and approvals, draft automations, and propose matter handoffs |
 | `skills/company-formation/` | Incorporation instructions |
+
+## Legal Ops in a Box
+
+With the updated plugin loaded, select `legal-ops-in-a-box` if your host lists skills, or ask it to use Legal Ops in a Box to design your intake workflow. It uses the host's available capabilities and refers to `legal-matters` for matter handling. Existing installs need to refresh from a version that includes the skill. Connecting just the MCP endpoint does not install plugin skills.
+
+Try the [synthetic demo](docs/legal-ops-demo.md) from a checkout. It includes a chat-only path with no credentials or live routing.
 
 ## Support
 
